@@ -20,21 +20,17 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Something went wrong in the normal case: " + e.getMessage());
         }
-
         // Trying to buy more than stock
         try {
             Product cheese = new PerishableProduct("Cheese", 100, 1, false, true, 0.2);
             Cart cart2 = new Cart();
             System.out.println("\n--- Case 2: Stock Check Failure ---");
             cart2.add(cheese, 2); // Requesting 2, but only 1 in stock
-
-
             Customer user = new Customer("TestUser", 500);
             user.checkout(cart2);
         } catch (Exception e) {
             System.out.println("Stock check failed as expected: " + e.getMessage());
         }
-
         // Buying expired item
         try {
             Product expiredItem = new PerishableProduct("Old Biscuits", 150, 3, true, true, 0.7);
@@ -47,7 +43,6 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Expired product case caught: " + e.getMessage());
         }
-
         // Not enough money
         try {
             Product tv = new ShippableProduct("TV", 3000, 2, 5.0);
@@ -60,8 +55,7 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Balance error handled: " + e.getMessage());
         }
-
-        // Trying to checkout with an empty cart
+        // Trying to check out with an empty cart
         try {
             System.out.println("\n--- Case 5: Empty Cart ---");
             Customer customer = new Customer("Ali", 1000);
